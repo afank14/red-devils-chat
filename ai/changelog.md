@@ -1,5 +1,15 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Phase 4: RAG Pipeline
+
+**Plan**: [phase4-rag-pipeline-plan.md](./roadmaps/complete/2026-03-19_phase4-rag-pipeline-plan.md) | **Roadmap**: [phase4-rag-pipeline-roadmap.md](./roadmaps/complete/2026-03-19_phase4-rag-pipeline-roadmap.md)
+
+- Built `server/src/rag/pipeline.ts` — DirectoryLoader + TextLoader, metadata enrichment, RecursiveCharacterTextSplitter (1000/200)
+- Built `server/src/rag/vector-store.ts` — MemoryVectorStore with OpenAI text-embedding-3-small (299 chunks)
+- Built `server/src/tools/rag-search.ts` — top-4 similarity search with `[n] Source: Document Name` citation format
+- Import path fix: document loaders from `@langchain/classic` (not `langchain`)
+- 10/10 tests passed: retrieval accuracy, source attribution, error handling, logging
+
 ## 2026-03-20 — Phase 3: Core Tools (Calculator + Web Search)
 
 **Plan**: [phase3-core-tools-plan.md](./roadmaps/complete/2026-03-19_phase3-core-tools-plan.md) | **Roadmap**: [phase3-core-tools-roadmap.md](./roadmaps/complete/2026-03-19_phase3-core-tools-roadmap.md)
