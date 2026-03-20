@@ -10,15 +10,22 @@ if (!fs.existsSync(logsDir)) {
 }
 
 const logFilePath = path.join(logsDir, "app.log");
-const fileStream = fs.createWriteStream(logFilePath, { flags: "a" });
+
+// Open file descriptor directly for reliable writes
+const fd = fs.openSync(logFilePath, "a");
+const fileStream = fs.createWriteStream("", { fd, autoClose: false });
 
 // Tee stream: writes every log line to both stdout and the log file.
 // stdout gets raw JSON (piped through pino-pretty externally if desired),
 // file gets raw JSON for grep/jq parsing.
 const tee = new Writable({
-  write(chunk: Buffer, _encoding, callback) {
+  write(chunk: Buffer, encoding, callback) {
     process.stdout.write(chunk);
-    fileStream.write(chunk, callback);
+    fileStream.write(chunk, encoding, () => {
+      // Ensure file is flushed synchronously for test reliability
+      try { fs.fsyncSync(fd); } catch { /* ignore */ }
+      callback();
+    });
   },
 });
 
