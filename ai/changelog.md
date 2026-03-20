@@ -1,5 +1,17 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Phase 7: SSE Streaming (P1 Stretch)
+
+**Plan**: [phase7-streaming-plan.md](./roadmaps/complete/2026-03-19_phase7-streaming-plan.md) | **Roadmap**: [phase7-streaming-roadmap.md](./roadmaps/complete/2026-03-19_phase7-streaming-roadmap.md)
+
+- Added POST /api/chat/stream SSE endpoint — tokens stream to UI in real-time
+- Tool indicators: Thinking → Searching knowledge base / Calculating / Searching the web → streaming text
+- Frontend ReadableStream consumer with SSE parser, buffering, and AbortController
+- Tool indicator persists until next tool or first token (fixes fast calculator being invisible)
+- Client disconnect detection + abort, error mid-stream handling
+- System prompt: no-LaTeX rule prevents `\times`, `\frac` in responses
+- Non-streaming POST /api/chat preserved as fallback
+
 ## 2026-03-20 — Fix: web search domain filter too restrictive
 
 - Removed `includeDomains` whitelist from TavilySearch — queries about specific people (e.g., Solskjaer) returned empty when the 5 whitelisted sites had no articles
