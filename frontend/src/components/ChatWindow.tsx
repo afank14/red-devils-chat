@@ -88,11 +88,9 @@ export default function ChatWindow() {
 
               if (evt.event === "token" && payload.content) {
                 fullAnswer += payload.content;
-                // Clear tool indicator when first real token arrives
                 setActiveTool(null);
 
                 if (!assistantAdded) {
-                  // First token — add the assistant message
                   assistantAdded = true;
                   setMessages((prev) => [
                     ...prev,
