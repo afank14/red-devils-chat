@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/server.ts | pino-pretty",
     "smoke-test": "tsx src/smoke-test.ts"
   },
   "keywords": [],

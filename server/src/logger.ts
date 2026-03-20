@@ -2,28 +2,27 @@ import pino from "pino";
 import crypto from "crypto";
 import path from "path";
 import fs from "fs";
+import { Writable } from "stream";
 
-const logsDir = path.resolve(__dirname, "../../logs");
+const logsDir = path.resolve(process.cwd(), "..", "logs");
 if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
 
-const transports = pino.transport({
-  targets: [
-    {
-      target: "pino-pretty",
-      options: { colorize: true, destination: 1 },
-      level: process.env.LOG_LEVEL ?? "info",
-    },
-    {
-      target: "pino/file",
-      options: { destination: path.join(logsDir, "app.log"), mkdir: true },
-      level: process.env.LOG_LEVEL ?? "info",
-    },
-  ],
+const logFilePath = path.join(logsDir, "app.log");
+const fileStream = fs.createWriteStream(logFilePath, { flags: "a" });
+
+// Tee stream: writes every log line to both stdout and the log file.
+// stdout gets raw JSON (piped through pino-pretty externally if desired),
+// file gets raw JSON for grep/jq parsing.
+const tee = new Writable({
+  write(chunk: Buffer, _encoding, callback) {
+    process.stdout.write(chunk);
+    fileStream.write(chunk, callback);
+  },
 });
 
-const logger = pino({ level: process.env.LOG_LEVEL ?? "info" }, transports);
+const logger = pino({ level: process.env.LOG_LEVEL ?? "info" }, tee);
 
 export function generateTraceId(): string {
   return crypto.randomUUID();

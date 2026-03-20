@@ -3,16 +3,23 @@ import logger, { truncateOutput } from "../logger.js";
 
 const MAX_QUERY_LENGTH = 500;
 
-const tavilySearch = new TavilySearch({
-  maxResults: 5,
-  includeDomains: [
-    "manutd.com",
-    "bbc.co.uk/sport",
-    "premierleague.com",
-    "skysports.com",
-    "espn.com",
-  ],
-});
+let _tavilySearch: TavilySearch | null = null;
+
+function getTavilySearch(): TavilySearch {
+  if (!_tavilySearch) {
+    _tavilySearch = new TavilySearch({
+      maxResults: 5,
+      includeDomains: [
+        "manutd.com",
+        "bbc.co.uk/sport",
+        "premierleague.com",
+        "skysports.com",
+        "espn.com",
+      ],
+    });
+  }
+  return _tavilySearch;
+}
 
 async function invokeWebSearch(query: string): Promise<string> {
   const start = Date.now();
@@ -47,7 +54,8 @@ async function invokeWebSearch(query: string): Promise<string> {
   }
 
   try {
-    const result = await tavilySearch.invoke({ query });
+    const tavily = getTavilySearch();
+    const result = await tavily.invoke({ query });
     const output = typeof result === "string" ? result : JSON.stringify(result);
     const durationMs = Date.now() - start;
     logger.info(
@@ -82,5 +90,5 @@ async function invokeWebSearch(query: string): Promise<string> {
   }
 }
 
-export { tavilySearch, invokeWebSearch };
-export default tavilySearch;
+export { getTavilySearch, invokeWebSearch };
+export default getTavilySearch;
