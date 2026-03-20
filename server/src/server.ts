@@ -6,6 +6,7 @@ import express from "express";
 import cors from "cors";
 import logger from "./logger.js";
 import chatRouter from "./routes/chat.js";
+import streamRouter from "./routes/stream.js";
 import { initAgent } from "./agent/agent.js";
 
 const app = express();
@@ -19,6 +20,7 @@ app.get("/health", (_req, res) => {
 });
 
 app.use(chatRouter);
+app.use(streamRouter);
 
 async function start() {
   await initAgent();

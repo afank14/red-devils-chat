@@ -133,4 +133,11 @@ export async function initAgent(): Promise<void> {
   logger.info({ event: "agent_ready", category: "agent" }, "agent initialized");
 }
 
-export { sessionStore, MAX_MESSAGE_LENGTH, MAX_HISTORY_LENGTH };
+export function initAgentForStream() {
+  if (!agent) {
+    throw new Error("Agent not initialized. Call initAgent() first.");
+  }
+  return agent;
+}
+
+export { sessionStore, getSessionHistory, trimHistory, MAX_MESSAGE_LENGTH, MAX_HISTORY_LENGTH };
