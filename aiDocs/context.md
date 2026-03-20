@@ -25,5 +25,6 @@ An agentic RAG-powered chatbot about Manchester United, built with LangChain.js 
 - Phase 3 (Core Tools) complete — calculator + web search tools with structured logging
 - Phase 4 (RAG Pipeline) complete — document loading, splitting, embedding, vector store, retrieval tool
 - Phase 5 (Agent) complete — createAgent, system prompt, conversation memory, POST /api/chat, structured logging
+- Phase 6 (Web UI) complete — React chat interface with markdown, typing indicator, error handling
 - LLM: OpenAI/GPT-4o (single provider for LLM + embeddings)
-- Next: Phase 6 — frontend chat UI (React components, useChat hook, API integration)
+- Next: Phase 7 (stretch) — SSE streaming, or wrap up and submit

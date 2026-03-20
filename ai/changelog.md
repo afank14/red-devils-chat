@@ -1,5 +1,15 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Phase 6: Web UI
+
+**Plan**: [phase6-web-ui-plan.md](./roadmaps/complete/2026-03-19_phase6-web-ui-plan.md) | **Roadmap**: [phase6-web-ui-roadmap.md](./roadmaps/complete/2026-03-19_phase6-web-ui-roadmap.md)
+
+- Built React chat interface: ChatWindow, MessageList, MessageBubble, ChatInput, TypingIndicator
+- Dark theme with Man United red/gold branding, DM Serif/DM Sans fonts
+- Markdown rendering (react-markdown), auto-scroll, typing indicator, loading states
+- Error handling: network failures and API errors shown as in-chat system messages
+- Connected to POST /api/chat with conversationId for session continuity
+
 ## 2026-03-20 — Phase 5: Agent
 
 **Plan**: [phase5-agent-plan.md](./roadmaps/complete/2026-03-19_phase5-agent-plan.md) | **Roadmap**: [phase5-agent-roadmap.md](./roadmaps/complete/2026-03-19_phase5-agent-roadmap.md)
