@@ -17,7 +17,7 @@ Wire all 3 tools (RAG search, calculator, web search) into a LangChain agent wit
 
 ### Agent Setup
 
-Use `createAgent` from `"langchain"` with `ChatAnthropic` (`claude-sonnet-4-5-20250929`, `temperature: 0`) as the model. Pass all three tools as an array. The agent handles the ReAct loop automatically — it reasons about the query, selects tool(s), calls them, observes results, and repeats until it can synthesize a final answer.
+Use `createAgent` from `"langchain"` with `ChatOpenAI` (`gpt-4o`, `temperature: 0`) as the model. Pass all three tools as an array. The agent handles the ReAct loop automatically — it reasons about the query, selects tool(s), calls them, observes results, and repeats until it can synthesize a final answer.
 
 ### System Prompt
 

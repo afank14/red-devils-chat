@@ -42,7 +42,7 @@ A root `package.json` provides convenience scripts (`npm run dev` to start both,
 Initialize with `npm init`, then install dependencies in two groups:
 
 **Runtime dependencies:**
-- `langchain`, `@langchain/anthropic`, `@langchain/openai`, `@langchain/langgraph`, `@langchain/core`, `@langchain/tavily`, `@langchain/classic`, `@langchain/textsplitters` — agent framework and integrations
+- `langchain`, `@langchain/openai`, `@langchain/langgraph`, `@langchain/core`, `@langchain/tavily`, `@langchain/classic`, `@langchain/textsplitters` — agent framework and integrations
 - `zod` — schema validation for tool inputs
 - `mathjs` — sandboxed calculator evaluation
 - `express` — HTTP server and API routes
@@ -69,8 +69,7 @@ Verify the default Vite app renders in the browser.
 ### Environment Variables
 
 Create `.env.example` at the project root with:
-- `ANTHROPIC_API_KEY` — for Claude (agent reasoning)
-- `OPENAI_API_KEY` — for text-embedding-3-small (RAG embeddings)
+- `OPENAI_API_KEY` — for GPT-4o (agent reasoning) and text-embedding-3-small (RAG embeddings)
 - `TAVILY_API_KEY` — for web search tool
 - `PORT` — backend port (default 3000)
 - `LOG_LEVEL` — pino log level (default info)
@@ -80,7 +79,7 @@ The backend loads `.env` from the project root via dotenv's `path` option.
 
 ### Smoke Test
 
-Write a small standalone script (`server/src/smoke-test.ts`) that imports each API client (ChatAnthropic, OpenAIEmbeddings, TavilySearch) and makes one minimal call to verify the keys work. This script is run manually, not part of the app — it just confirms the environment is configured correctly before moving on.
+Write a small standalone script (`server/src/smoke-test.ts`) that imports each API client (ChatOpenAI, OpenAIEmbeddings, TavilySearch) and makes one minimal call to verify the keys work. This script is run manually, not part of the app — it just confirms the environment is configured correctly before moving on.
 
 ### CORS Configuration
 

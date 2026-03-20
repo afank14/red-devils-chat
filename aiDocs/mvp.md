@@ -122,7 +122,7 @@ Agent: → understands context → RAG → "Sheringham and Solskjaer scored..."
 |-----------|--------|-----------|
 | Runtime | Node.js + TypeScript | Assignment requirement, type safety |
 | Agent | LangChain.js ReAct agent | Assignment requirement, built-in tool orchestration |
-| LLM | Claude via @langchain/anthropic | Primary reasoning model |
+| LLM | GPT-4o via @langchain/openai | Primary reasoning model |
 | Embeddings | OpenAI text-embedding-3-small via @langchain/openai | Fast, cheap, good quality for this corpus size |
 | Vector Store | MemoryVectorStore (@langchain/classic) | Simplest option for MVP; ChromaDB for persistence stretch goal |
 | Calculator | math.js | Robust expression evaluation |

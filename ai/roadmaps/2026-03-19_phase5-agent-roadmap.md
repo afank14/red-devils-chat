@@ -9,8 +9,8 @@
 ## Tasks
 
 ### Agent Setup
-- [ ] Create `server/src/agent/agent.ts` — import `createAgent` from `"langchain"`, `ChatAnthropic` from `@langchain/anthropic`, and all 3 tools
-- [ ] Configure `ChatAnthropic` with `claude-sonnet-4-5-20250929`, `temperature: 0`
+- [ ] Create `server/src/agent/agent.ts` — import `createAgent` from `"langchain"`, `ChatOpenAI` from `@langchain/openai`, and all 3 tools
+- [ ] Configure `ChatOpenAI` with `gpt-4o`, `temperature: 0`
 - [ ] Pass tools array (rag_search, calculator, tavily_search) to `createAgent`
 - [ ] Set `recursionLimit` to prevent infinite loops
 

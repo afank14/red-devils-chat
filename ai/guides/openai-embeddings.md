@@ -1,6 +1,6 @@
 # OpenAI Embeddings — Reference Guide
 
-> **Context**: Red Devils Chat uses OpenAI for embeddings only (Anthropic does not offer an embeddings model). Claude remains the reasoning LLM via `@langchain/anthropic`. This doc covers everything needed to embed our Manchester United document corpus for RAG retrieval.
+> **Context**: Red Devils Chat uses OpenAI for both the reasoning LLM (`ChatOpenAI` with `gpt-4o`) and embeddings (`text-embedding-3-small`). This doc covers everything needed to embed our Manchester United document corpus for RAG retrieval.
 
 ---
 
@@ -396,11 +396,8 @@ Both the `openai` npm package and `@langchain/openai` read this automatically fr
 ```bash
 # .env (project root)
 
-# OpenAI — used for embeddings only (not for LLM reasoning)
+# OpenAI — used for both LLM reasoning and embeddings
 OPENAI_API_KEY=sk-proj-your-key-here
-
-# Anthropic — used for Claude LLM (agent reasoning)
-ANTHROPIC_API_KEY=sk-ant-your-key-here
 
 # Tavily — used for web search tool
 TAVILY_API_KEY=tvly-your-key-here

@@ -11,8 +11,7 @@ An agentic RAG-powered chatbot about Manchester United, built with LangChain.js 
 - [Testing & Logging](../ai/guides/testing.md) — where logs are, how to read them, how to parse for errors. **Read this before debugging or running tests.**
 
 ## API Keys Required
-- `ANTHROPIC_API_KEY` — Claude LLM
-- `OPENAI_API_KEY` — embeddings
+- `OPENAI_API_KEY` — LLM and embeddings
 - `TAVILY_API_KEY` — web search
 - `FOOTBALL_DATA_API_KEY` — football-data.org (stretch goal)
 
@@ -21,7 +20,6 @@ An agentic RAG-powered chatbot about Manchester United, built with LangChain.js 
 - Whenever finishing with implementing a plan / roadmap doc pair, make sure the roadmap is up to date (tasks checked off, etc). Then move the docs to ai/roadmaps/complete. Then update ai/changelog.md accordingly.
 
 ## Current Focus
-- Project setup and planning phase
-- PRD, MVP, and architecture defined
-- Reference docs created in `ai/guides/reference/`
-- Next: roadmap, then start building Phase 1 (foundation + document corpus)
+- Phase 1 (Foundation) complete — server, frontend, env config, smoke test all verified
+- LLM switched from Anthropic/Claude to OpenAI/GPT-4o (single provider)
+- Next: Phase 2 — write Manchester United document corpus (5-7 .md files in `documents/`)

@@ -1,6 +1,6 @@
 # Red Devils Chat
 
-An agentic, RAG-powered chatbot for Manchester United fans. Built with LangChain.js, Claude, and React.
+An agentic, RAG-powered chatbot for Manchester United fans. Built with LangChain.js, OpenAI, and React.
 
 Ask about club history, compare player stats, get the latest transfer news, or check the Premier League table — all from a single conversational interface with source attribution and transparent AI reasoning.
 
@@ -27,7 +27,7 @@ Ask about club history, compare player stats, get the latest transfer news, or c
 |-----------|-----------|
 | Runtime | Node.js + TypeScript |
 | Agent Framework | LangChain.js (`createAgent` from `langchain`) |
-| LLM | Claude Sonnet 4.5 (via `@langchain/anthropic`) |
+| LLM | OpenAI GPT-4o (via `@langchain/openai`) |
 | Embeddings | OpenAI `text-embedding-3-small` (via `@langchain/openai`) |
 | Vector Store | MemoryVectorStore (`@langchain/classic`) |
 | Web Search | TavilySearch (`@langchain/tavily`) |
@@ -41,8 +41,7 @@ Ask about club history, compare player stats, get the latest transfer news, or c
 
 - Node.js 18+
 - API keys for:
-  - [Anthropic](https://console.anthropic.com/) (Claude LLM)
-  - [OpenAI](https://platform.openai.com/) (embeddings)
+  - [OpenAI](https://platform.openai.com/) (LLM and embeddings)
   - [Tavily](https://app.tavily.com/) (web search)
   - [football-data.org](https://www.football-data.org/) (stretch goal — free tier)
 
@@ -70,7 +69,6 @@ cp .env.example .env
 ## Environment Variables
 
 ```
-ANTHROPIC_API_KEY=your-key-here
 OPENAI_API_KEY=your-key-here
 TAVILY_API_KEY=your-key-here
 FOOTBALL_DATA_API_KEY=your-key-here    # Optional (stretch goal)

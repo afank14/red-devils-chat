@@ -140,9 +140,9 @@ const webSearchTool = new TavilySearch({
 ```typescript
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
-import { ChatAnthropic } from "@langchain/anthropic";
+import { ChatOpenAI } from "@langchain/openai";
 
-const llm = new ChatAnthropic({ model: "claude-sonnet-4-20250514" });
+const llm = new ChatOpenAI({ model: "gpt-4o" });
 
 const webSearchTool = new TavilySearchResults({
   maxResults: 5,

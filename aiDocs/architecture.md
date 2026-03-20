@@ -31,7 +31,7 @@ Red Devils Chat is an agentic RAG chatbot for Manchester United fans. A user ask
                             |   (createAgent)       |
                             |  - ReAct loop          |
                             |  - System prompt       |
-                            |  - Claude Sonnet 4.5   |
+                            |  - OpenAI GPT-4o       |
                             +----------+------------+
                                        |
                     +------------------+------------------+
@@ -103,7 +103,7 @@ Red Devils Chat is an agentic RAG chatbot for Manchester United fans. A user ask
 - **Function**: `createAgent` from `"langchain"` -- creates a ReAct agent that handles the tool-calling loop automatically
 - **ReAct loop**: LLM reasons about the query -> decides which tool(s) to call -> calls them -> observes results -> repeats until it has enough information -> synthesizes final answer
 - **System prompt role**: Defines persona (Red Devils Chat), tool usage guidelines (when to use RAG vs. web search vs. calculator), citation format (`[Source: Document Name -- Section]`), and response style
-- **LLM**: `ChatAnthropic` with `claude-sonnet-4-5-20250929`, `temperature: 0`
+- **LLM**: `ChatOpenAI` with `gpt-4o`, `temperature: 0`
 - **Recursion limit**: Set to 10-15 to prevent infinite tool-calling loops
 - **Per-request flow**: (1) look up/create session history, (2) push user message, (3) invoke agent with full history, (4) push assistant response
 - **System prompt structure**: Persona definition, tool selection guidance (when to use RAG vs web search vs calculator), source citation format, multi-tool chaining instructions, response style
@@ -314,10 +314,10 @@ similaritySearch(query, k=4) -> top 4 chunks with metadata
 - Web search returns scraped snippets that may be inaccurate or outdated
 - The system prompt guides the agent to prefer Football Data API for these queries
 
-**OpenAI for embeddings, Claude for reasoning**
-- Anthropic does not offer an embeddings model
+**OpenAI for both LLM and embeddings**
+- Single provider simplifies API key management and billing
+- `gpt-4o` for reasoning and tool orchestration; `text-embedding-3-small` for embeddings
 - `text-embedding-3-small` is fast, cheap ($0.02/1M tokens), and high quality for a small corpus
-- Clean separation: OpenAI handles vector math, Claude handles reasoning and tool orchestration
 
 ---
 

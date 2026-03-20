@@ -7,10 +7,10 @@
 ## Phase 1: Foundation
 - Initialize Node.js/TypeScript project (backend)
 - Scaffold React/TypeScript app (frontend via Vite)
-- Install all dependencies (langchain, anthropic, openai, tavily, classic, mathjs, zod, pino, etc.)
+- Install all dependencies (langchain, openai, tavily, classic, mathjs, zod, pino, etc.)
 - Set up `.env.example` with required API keys
 - Configure TypeScript, ESLint basics
-- Verify API keys work (quick smoke test for Claude, OpenAI embeddings, Tavily)
+- Verify API keys work (quick smoke test for OpenAI chat, OpenAI embeddings, Tavily)
 - **Commit**: project scaffold with working dev environment
 
 ## Phase 2: Document Corpus

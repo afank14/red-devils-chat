@@ -6,7 +6,7 @@ A practical reference for building an agentic RAG chatbot with LangChain.js + Ty
 
 ## Table of Contents
 
-1. [ChatAnthropic (LLM Setup)](#1-chatanthropic-llm-setup)
+1. [ChatOpenAI (LLM Setup)](#1-chatopenai-llm-setup)
 2. [Creating a ReAct Agent](#2-creating-a-react-agent)
 3. [Defining Custom Tools](#3-defining-custom-tools)
 4. [Document Loading](#4-document-loading)
@@ -19,24 +19,24 @@ A practical reference for building an agentic RAG chatbot with LangChain.js + Ty
 
 ---
 
-## 1. ChatAnthropic (LLM Setup)
+## 1. ChatOpenAI (LLM Setup)
 
 ### Install
 
 ```bash
-npm install @langchain/anthropic
+npm install @langchain/openai
 ```
 
 ### Code
 
 ```typescript
-import { ChatAnthropic } from "@langchain/anthropic";
+import { ChatOpenAI } from "@langchain/openai";
 
-const llm = new ChatAnthropic({
-  model: "claude-sonnet-4-5-20250929",
+const llm = new ChatOpenAI({
+  model: "gpt-4o",
   temperature: 0,
   maxTokens: 4096,
-  anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 // Basic invocation
@@ -55,10 +55,10 @@ console.log(result.content);
 
 ### Notes
 
-- Set `ANTHROPIC_API_KEY` in your `.env` file.
+- Set `OPENAI_API_KEY` in your `.env` file.
 - `temperature: 0` gives deterministic outputs -- good for factual Q&A.
-- The `model` field accepts any Claude model string. Use `"claude-sonnet-4-5-20250929"` for a good balance of speed and quality, or `"claude-opus-4-20250514"` for maximum reasoning.
-- `ChatAnthropic` supports tool calling natively, which is required for the ReAct agent.
+- The `model` field accepts any OpenAI model string. Use `"gpt-4o"` for a good balance of speed and quality, or `"gpt-4o-mini"` for faster/cheaper responses.
+- `ChatOpenAI` supports tool calling natively, which is required for the ReAct agent.
 
 ---
 
@@ -75,15 +75,14 @@ npm install langchain @langchain/langgraph @langchain/core
 ### Approach A: `createAgent` (Recommended — course standard)
 
 ```typescript
-import { ChatAnthropic } from "@langchain/anthropic";
-// Or: import { ChatOpenAI } from "@langchain/openai";
+import { ChatOpenAI } from "@langchain/openai";
 import { createAgent } from "langchain";
 import { tool } from "@langchain/core/tools";
 import { z } from "zod";
 
 // 1. Choose your model
-const llm = new ChatAnthropic({
-  model: "claude-sonnet-4-5-20250929",
+const llm = new ChatOpenAI({
+  model: "gpt-4o",
   temperature: 0,
 });
 
@@ -131,7 +130,7 @@ console.log(lastMessage.content);
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 
 const agent = createReactAgent({
-  model: new ChatAnthropic({ model: "claude-sonnet-4-5-20250929" }),
+  model: new ChatOpenAI({ model: "gpt-4o" }),
   tools: [calculatorTool],
 });
 
@@ -815,10 +814,10 @@ LangGraph has a built-in checkpointer for maintaining state across invocations.
 
 ```typescript
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
-import { ChatAnthropic } from "@langchain/anthropic";
+import { ChatOpenAI } from "@langchain/openai";
 import { MemorySaver } from "@langchain/langgraph";
 
-const llm = new ChatAnthropic({ model: "claude-sonnet-4-5-20250929", temperature: 0 });
+const llm = new ChatOpenAI({ model: "gpt-4o", temperature: 0 });
 const memory = new MemorySaver();
 
 const agent = createReactAgent({
@@ -878,9 +877,9 @@ const result2 = await agent.invoke(
 
 ```typescript
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
-import { ChatAnthropic } from "@langchain/anthropic";
+import { ChatOpenAI } from "@langchain/openai";
 
-const llm = new ChatAnthropic({ model: "claude-sonnet-4-5-20250929", temperature: 0 });
+const llm = new ChatOpenAI({ model: "gpt-4o", temperature: 0 });
 const agent = createReactAgent({ llm, tools: [ragTool, calculatorTool, webSearchTool] });
 
 // Stream events from the agent
@@ -1004,7 +1003,7 @@ All packages needed for the MVP:
 
 ```bash
 # Core packages
-npm install langchain @langchain/anthropic @langchain/openai @langchain/langgraph @langchain/core
+npm install langchain @langchain/openai @langchain/langgraph @langchain/core
 
 # For homework tools
 npm install @langchain/tavily          # Web search
@@ -1029,7 +1028,6 @@ npm install -D typescript @types/node
 ### Environment Variables (.env)
 
 ```
-ANTHROPIC_API_KEY=sk-ant-...
 OPENAI_API_KEY=sk-...
 TAVILY_API_KEY=tvly-...
 ```
@@ -1041,9 +1039,8 @@ TAVILY_API_KEY=tvly-...
 A minimal working example combining all pieces:
 
 ```typescript
-import { ChatAnthropic } from "@langchain/anthropic";
+import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
 import { createAgent } from "langchain";
-import { OpenAIEmbeddings } from "@langchain/openai";
 import { MemoryVectorStore } from "@langchain/classic/vectorstores/memory";
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { TextLoader } from "langchain/document_loaders/fs/text";
@@ -1118,8 +1115,8 @@ async function main() {
   });
 
   // --- Create agent ---
-  const llm = new ChatAnthropic({
-    model: "claude-sonnet-4-5-20250929",
+  const llm = new ChatOpenAI({
+    model: "gpt-4o",
     temperature: 0,
   });
 

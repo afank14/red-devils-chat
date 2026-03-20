@@ -1,0 +1,23 @@
+import dotenv from "dotenv";
+import path from "path";
+
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+import express from "express";
+import cors from "cors";
+import logger from "./logger.js";
+
+const app = express();
+const PORT = process.env.PORT ?? 3000;
+
+app.use(cors({ origin: "http://localhost:5173" }));
+app.use(express.json());
+
+app.get("/health", (_req, res) => {
+  res.json({ status: "ok" });
+});
+
+app.listen(PORT, () => {
+  logger.info(`Server listening on http://localhost:${PORT}`);
+});
+
+export default app;

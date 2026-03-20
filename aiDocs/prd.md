@@ -147,7 +147,7 @@ Red Devils Chat solves this by providing a single conversational interface that 
 |-----------|-----------|
 | Runtime | Node.js / TypeScript |
 | Agent Framework | LangChain.js (ReAct agent) |
-| LLM | Claude (via @langchain/anthropic) |
+| LLM | GPT-4o (via @langchain/openai) |
 | Calculator | math.js |
 | Web Search | Tavily API |
 | Embeddings | OpenAI text-embedding-3-small via @langchain/openai |
