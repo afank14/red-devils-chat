@@ -1,5 +1,16 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Phase 2: Document Corpus
+
+**Plan**: [phase2-documents-plan.md](./roadmaps/complete/2026-03-19_phase2-documents-plan.md) | **Roadmap**: [phase2-documents-roadmap.md](./roadmaps/complete/2026-03-19_phase2-documents-roadmap.md)
+
+- Wrote 7 curated Manchester United markdown documents in `documents/`
+- club-history, player-legends, trophy-cabinet, iconic-matches, managerial-history, old-trafford, player-stats-reference
+- All stats use exact numbers for calculator-friendly retrieval
+- Structured with H2/H3 headers for chunk-friendly splitting (target <800 chars per section)
+- Source disclaimers moved to bottom "Source Notes" sections to avoid polluting embeddings
+- Verified calculator chain readiness (Rooney vs Ronaldo goals-per-game data retrievable)
+
 ## 2026-03-20 — Phase 1: Foundation
 
 **Plan**: [phase1-foundation-plan.md](./roadmaps/complete/2026-03-19_phase1-foundation-plan.md) | **Roadmap**: [phase1-foundation-roadmap.md](./roadmaps/complete/2026-03-19_phase1-foundation-roadmap.md)
