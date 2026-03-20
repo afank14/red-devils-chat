@@ -9,13 +9,6 @@ function getTavilySearch(): TavilySearch {
   if (!_tavilySearch) {
     _tavilySearch = new TavilySearch({
       maxResults: 5,
-      includeDomains: [
-        "manutd.com",
-        "bbc.co.uk/sport",
-        "premierleague.com",
-        "skysports.com",
-        "espn.com",
-      ],
     });
   }
   return _tavilySearch;

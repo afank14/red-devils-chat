@@ -1,5 +1,10 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Fix: web search domain filter too restrictive
+
+- Removed `includeDomains` whitelist from TavilySearch — queries about specific people (e.g., Solskjaer) returned empty when the 5 whitelisted sites had no articles
+- Tavily now searches the full web; sports results still surface naturally from football queries
+
 ## 2026-03-20 — Phase 6: Web UI
 
 **Plan**: [phase6-web-ui-plan.md](./roadmaps/complete/2026-03-19_phase6-web-ui-plan.md) | **Roadmap**: [phase6-web-ui-roadmap.md](./roadmaps/complete/2026-03-19_phase6-web-ui-roadmap.md)
