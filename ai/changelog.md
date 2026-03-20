@@ -1,5 +1,14 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Phase 3: Core Tools (Calculator + Web Search)
+
+**Plan**: [phase3-core-tools-plan.md](./roadmaps/complete/2026-03-19_phase3-core-tools-plan.md) | **Roadmap**: [phase3-core-tools-roadmap.md](./roadmaps/complete/2026-03-19_phase3-core-tools-roadmap.md)
+
+- Upgraded `logger.ts` with dual output (pino-pretty + JSON file), traceId/requestId helpers, ToolLogFields type
+- Built `server/src/tools/calculator.ts` — mathjs sandbox, Zod schema, input length limit, 11 edge cases tested
+- Built `server/src/tools/web-search.ts` — TavilySearch with sports domain filtering, query length limit, 4 tests passed
+- Both tools use catch-never-throw error handling and structured pino logging
+
 ## 2026-03-20 — Phase 2: Document Corpus
 
 **Plan**: [phase2-documents-plan.md](./roadmaps/complete/2026-03-19_phase2-documents-plan.md) | **Roadmap**: [phase2-documents-roadmap.md](./roadmaps/complete/2026-03-19_phase2-documents-roadmap.md)
