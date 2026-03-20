@@ -27,5 +27,6 @@ An agentic RAG-powered chatbot about Manchester United, built with LangChain.js 
 - Phase 5 (Agent) complete — createAgent, system prompt, conversation memory, POST /api/chat, structured logging
 - Phase 6 (Web UI) complete — React chat interface with markdown, typing indicator, error handling
 - Phase 7 (SSE Streaming) complete — real-time token streaming, tool indicators, abort handling
+- Phase 8 (Polish) complete — Football Data API, ChromaDB, 26-test CLI suite, scripts/
 - LLM: OpenAI/GPT-4o (single provider for LLM + embeddings)
-- All 7 phases complete. Stretch goals remaining: Football Data API, ChromaDB persistence
+- All 8 phases complete. Project ready for submission.

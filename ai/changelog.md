@@ -1,5 +1,16 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Phase 8: Polish & Stretch Goals
+
+**Plan**: [phase8-polish-plan.md](./roadmaps/complete/2026-03-19_phase8-polish-plan.md) | **Roadmap**: [phase8-polish-roadmap.md](./roadmaps/complete/2026-03-19_phase8-polish-roadmap.md)
+
+- Added Football Data API tool (4th tool) — live PL standings, fixtures, results, squad, top scorers
+- Added ChromaDB persistent vector store with MemoryVectorStore fallback
+- Built 26-test CLI integration suite (`source .testEnvVars && ./scripts/test.sh`)
+- CLI scripts: dev.sh, build.sh, run.sh, test.sh
+- Logger fix: fd-based file writes with fsync for reliable log flushing
+- Updated testing.md with full CLI usage guide
+
 ## 2026-03-20 — Phase 7: SSE Streaming (P1 Stretch)
 
 **Plan**: [phase7-streaming-plan.md](./roadmaps/complete/2026-03-19_phase7-streaming-plan.md) | **Roadmap**: [phase7-streaming-roadmap.md](./roadmaps/complete/2026-03-19_phase7-streaming-roadmap.md)
