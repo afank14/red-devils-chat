@@ -1,5 +1,17 @@
 This is meant to be a concise list of changes to track as we build this project. Keep comments short and summarized. Always add references back to the source plan docs for each set of changes.
 
+## 2026-03-20 — Phase 5: Agent
+
+**Plan**: [phase5-agent-plan.md](./roadmaps/complete/2026-03-19_phase5-agent-plan.md) | **Roadmap**: [phase5-agent-roadmap.md](./roadmaps/complete/2026-03-19_phase5-agent-roadmap.md)
+
+- Built `server/src/agent/agent.ts` — createAgent with ChatOpenAI (gpt-4o), 3 tools, conversation memory
+- Built `server/src/agent/system-prompt.ts` — persona, tool routing, citation format, multi-tool chaining
+- Built `server/src/agent/callbacks.ts` — ToolLoggingHandler for traceId-aware tool call logging
+- Built `server/src/routes/chat.ts` — POST /api/chat with input validation and security guards
+- Logger rewritten with tee stream for reliable dual output (stdout + file)
+- Lazy init for ChatOpenAI/TavilySearch fixes env var load order
+- Verified tool routing via log analysis: RAG, RAG+calculator, tavily_search all correct with traceId propagation
+
 ## 2026-03-20 — Phase 4: RAG Pipeline
 
 **Plan**: [phase4-rag-pipeline-plan.md](./roadmaps/complete/2026-03-19_phase4-rag-pipeline-plan.md) | **Roadmap**: [phase4-rag-pipeline-roadmap.md](./roadmaps/complete/2026-03-19_phase4-rag-pipeline-roadmap.md)
