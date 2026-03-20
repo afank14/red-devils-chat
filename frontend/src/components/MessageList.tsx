@@ -1,19 +1,26 @@
 import { useEffect, useRef } from "react";
 import MessageBubble from "./MessageBubble";
-import TypingIndicator from "./TypingIndicator";
+import ToolIndicator from "./ToolIndicator";
 import type { ChatMessage } from "../types/chat";
 
 interface Props {
   messages: ChatMessage[];
   isLoading: boolean;
+  activeTool: string | null;
 }
 
-export default function MessageList({ messages, isLoading }: Props) {
+export default function MessageList({ messages, isLoading, activeTool }: Props) {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isLoading]);
+  }, [messages, isLoading, activeTool]);
+
+  // Show a "thinking" indicator when loading but no tool is active yet
+  // and no tokens have started streaming
+  const lastMsg = messages[messages.length - 1];
+  const isStreaming = lastMsg?.role === "assistant" && isLoading;
+  const showThinking = isLoading && !activeTool && !isStreaming;
 
   return (
     <main className="chat-messages">
@@ -25,7 +32,8 @@ export default function MessageList({ messages, isLoading }: Props) {
       {messages.map((msg, i) => (
         <MessageBubble key={i} message={msg} />
       ))}
-      {isLoading && <TypingIndicator />}
+      {activeTool && <ToolIndicator label={activeTool} />}
+      {showThinking && <ToolIndicator label="Thinking…" />}
       <div ref={bottomRef} />
     </main>
   );

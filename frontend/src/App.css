@@ -196,6 +196,33 @@ body {
   max-width: 80%;
 }
 
+/* ── Tool Indicator ── */
+.tool-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background: var(--bubble-ai);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  border-top-left-radius: 4px;
+  font-size: 13px;
+  color: var(--gold);
+  animation: msgIn .28s cubic-bezier(.22,1,.36,1) both;
+}
+
+.tool-spinner {
+  width: 14px; height: 14px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .msg-time {
   font-size: 10.5px;
   color: var(--muted);
