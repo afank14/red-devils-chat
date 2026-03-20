@@ -170,6 +170,7 @@ function formatToolName(tool: string): string {
     case "calculator": return "Calculating…";
     case "TavilySearch":
     case "tavily_search": return "Searching the web…";
+    case "football_data": return "Fetching live football data…";
     default: return `Using ${tool}…`;
   }
 }

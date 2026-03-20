@@ -5,6 +5,7 @@ import { SYSTEM_PROMPT } from "./system-prompt.js";
 import ragSearchTool from "../tools/rag-search.js";
 import calculatorTool from "../tools/calculator.js";
 import getTavilySearch from "../tools/web-search.js";
+import footballDataTool from "../tools/football-data.js";
 import { initVectorStore } from "../rag/vector-store.js";
 import logger, { generateTraceId, generateRequestId } from "../logger.js";
 import { ToolLoggingHandler } from "./callbacks.js";
@@ -125,7 +126,7 @@ export async function initAgent(): Promise<void> {
 
   agent = createAgent({
     model: llm,
-    tools: [ragSearchTool, calculatorTool, getTavilySearch()],
+    tools: [ragSearchTool, calculatorTool, getTavilySearch(), footballDataTool],
     prompt: SYSTEM_PROMPT,
   });
 
