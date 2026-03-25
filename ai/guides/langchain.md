@@ -1,3 +1,5 @@
+<!-- Generated with context7 (library: /websites/langchain_oss_javascript) -->
+
 # LangChain.js Reference Guide for Red Devils Chat
 
 A practical reference for building an agentic RAG chatbot with LangChain.js + TypeScript. All code examples are TypeScript-first and copy-paste ready.

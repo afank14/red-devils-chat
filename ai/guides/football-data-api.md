@@ -1,3 +1,5 @@
+<!-- Generated with context7 (library: /websites/football-data) -->
+
 # football-data.org API Reference
 
 > Reference documentation for integrating the football-data.org REST API (v4) into our Manchester United chatbot as a LangChain tool for live Premier League data.

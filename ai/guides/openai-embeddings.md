@@ -1,3 +1,5 @@
+<!-- Generated with context7 (library: /openai/openai-node, /websites/developers_openai_api) -->
+
 # OpenAI Embeddings — Reference Guide
 
 > **Context**: Red Devils Chat uses OpenAI for both the reasoning LLM (`ChatOpenAI` with `gpt-4o`) and embeddings (`text-embedding-3-small`). This doc covers everything needed to embed our Manchester United document corpus for RAG retrieval.

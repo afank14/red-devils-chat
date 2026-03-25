@@ -1,3 +1,5 @@
+<!-- Generated with context7 (libraries: /josdejong/mathjs, /pinojs/pino) -->
+
 # Supporting Libraries Reference
 
 Reference documentation for the supporting libraries used in the agentic RAG chatbot.

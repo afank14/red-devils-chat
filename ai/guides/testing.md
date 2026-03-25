@@ -1,3 +1,5 @@
+<!-- Generated with context7 (library: /vitest-dev/vitest) -->
+
 # Testing & Logging Guide
 
 ## Quick Start

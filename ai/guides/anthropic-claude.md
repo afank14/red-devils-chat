@@ -1,3 +1,5 @@
+<!-- Generated with context7 (library: /websites/platform_claude_en, /anthropics/anthropic-sdk-typescript) -->
+
 # Anthropic Claude — Reference Guide
 
 > Reference documentation for using Claude as the LLM in an agentic RAG chatbot (Red Devils Chat).

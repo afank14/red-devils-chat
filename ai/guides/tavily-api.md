@@ -1,3 +1,5 @@
+<!-- Generated with context7 (library: /websites/tavily, /tavily-ai/tavily-js) -->
+
 # Tavily API Reference
 
 ## 1. Overview
