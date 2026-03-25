@@ -31,8 +31,8 @@ chroma-data/
 
 # Claude Code
 .claude/
-CLAUDE.md
-claude.md
+# CLAUDE.md
+# claude.md
 
 # TypeScript
 *.tsbuildinfo
